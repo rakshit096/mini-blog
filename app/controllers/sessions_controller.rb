@@ -16,4 +16,25 @@ class SessionsController < ApplicationController
         end
     end
 
+    def destroy
+        session[:user_id]=nil
+        redirect_to articles_path
+    end
+
 end
+
+
+# FLOW
+
+# LOGIN
+
+# session[:user_id] = 1
+#         ↓
+# logged in
+
+
+# LOGOUT
+
+# session[:user_id] = nil
+#         ↓
+# logged out
