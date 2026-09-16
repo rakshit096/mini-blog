@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
-    before_action :require_user, only: [ :new, :create, :edit, :update, :destroy ]  #to restrict controller actions
+    before_action :require_user, only: [ :index, :new, :create, :destroy ]  #to restrict controller actions
     def index
-        @articles = Articles.all
+        @articles = Article.all
     end
 
     def new
@@ -16,6 +16,10 @@ class ArticlesController < ApplicationController
       else
         render :new, status: :unprocessable_entity
       end
+    end
+
+    def show
+    @article = Article.find(params[:id])
     end
 
     def destroy

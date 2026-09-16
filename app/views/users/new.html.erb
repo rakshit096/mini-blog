@@ -1,0 +1,32 @@
+<h1>Create Account</h1>
+
+<%= form_with model: @user do |form| %>
+
+  <% if @user.errors.any? %>
+
+    <div class="flash">
+      <% @user.errors.full_messages.each do |message| %>
+        <p><%= message %></p>
+      <% end %>
+    </div>
+
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :username %>
+    <%= form.text_field :username %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.email_field :email %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :password %>
+    <%= form.password_field :password %>
+  </div>
+
+  <%= form.submit "Create Account", class: "button" %>
+
+<% end %>

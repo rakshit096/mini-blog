@@ -1,0 +1,20 @@
+<h1>My Account</h1>
+
+<div class="article">
+
+  <h2><%= current_user.username %></h2>
+
+  <p>
+    Email: <%= current_user.email %>
+  </p>
+
+</div>
+
+<h2>Delete Account</h2>
+
+<p>
+  This will also delete all your articles.
+</p>
+
+<%= button_to "Delete My Account", users_path, method: :delete,class: "button danger",data: {
+                turbo_confirm: "Are you sure? This cannot be undone."} %>
