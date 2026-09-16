@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-  helper_method :current_user, :logged_in?
+  helper_method :current_user, :logged_in?           # expose these methods to views
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id])
